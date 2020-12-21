@@ -1,3 +1,5 @@
+"""Solution for day 3, part 1 puzzle on adventofcode.com"""
+
 inputList = []
 with open("input.txt","r") as f:
     for line in f:
