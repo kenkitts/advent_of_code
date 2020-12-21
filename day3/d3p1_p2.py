@@ -1,7 +1,7 @@
 """Solution for day 3, part 1 puzzle on adventofcode.com"""
 
 inputList = []
-with open("input.txt","r") as f:
+with open("day3/input.txt","r") as f:
     for line in f:
         inputList.append(line)
 
@@ -23,3 +23,4 @@ def slope(xIncrement, yIncrement):
     return trees
 
 print("Part 1: "+str(slope(3,1)))
+print("Part 2: "+str((int(slope(1,1)) * (int(slope(3,1))) * (int(slope(5,1))) * (int(slope(7,1))) * (int(slope(1,2))))))
