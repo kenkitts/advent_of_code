@@ -32,17 +32,24 @@ with open('input.txt','rt') as file:
 target = 'shiny gold'
 bag_set = set()
 
-"""Define a function that searches through the bag_data for bags
- that contain the target.  If they do, then the function will
- call itself (recursion)"""
 
-def find_bag(bag_data, target):
+def p1(bag_data, target):
     global bag_set
     for bag in bag_data:
         if target in bag_data[bag].keys():
             bag_set.add(bag)
-            find_bag(bag_data, bag)
+            p1(bag_data, bag)
+    return len(bag_set)
 
-find_bag(bag_data, target)
 
-print('The solution to part 1 is: {p1}'.format(p1=len(bag_set)))
+def p2(bag_data, target):
+    count = 0
+    if bool(bag_data.get(target)):
+        for key in bag_data.get(target):
+            bag_count = bag_data[target][key]
+            count += bag_count + (bag_count * (p2(bag_data, key)))
+    return count
+
+
+print('The solution to part 1 is: {}'.format(p1(bag_data, target)))
+print('The solution to part 2 is: {}'.format(p2(bag_data, target)))
