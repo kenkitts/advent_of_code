@@ -1,3 +1,5 @@
+"""Solution to day 8 p1,p2 puzzles on adventofcode.com"""
+
 with open('input.txt','rt') as file:
     instructions = file.read().split('\n')
 
