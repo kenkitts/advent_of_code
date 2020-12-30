@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
+
 data = [int(line.strip('\n')) for line in open(file='input.txt',mode='rt')]
 
-def check(i_list, i):
+def p1(i_list, i):
     index = 0
     result = False
     for num_1 in i_list:
@@ -18,11 +20,26 @@ def main(data, preamble):
     while end_index < (len(data)):
         i = data[end_index]
         i_list = data[start_index:end_index]
-        if check(i_list,i) is False:
+        if p1(i_list, i) is False:
             return i
         else:
             start_index += 1
             end_index += 1
 
 
-print(main(data,25))
+def p2(data, target):
+    for l_idx,v in enumerate(data):
+        num_list = [v]
+        total = v
+        r_idx = l_idx + 1
+        while total < target:
+            total += data[r_idx]
+            num_list.append(data[r_idx])
+            if total == target:
+                return sorted(num_list)[0] + sorted(num_list)[-1]
+            r_idx += 1
+
+
+if __name__ == '__main__':
+    print('The solution to part 1 is : {}'.format(main(data, 25)))
+    print('The solution to part 2 is : {}'.format(p2(data, 26796446)))
