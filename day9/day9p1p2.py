@@ -42,4 +42,4 @@ def p2(data, target):
 
 if __name__ == '__main__':
     print('The solution to part 1 is : {}'.format(main(data, 25)))
-    print('The solution to part 2 is : {}'.format(p2(data, 26796446)))
+    print('The solution to part 2 is : {}'.format(p2(data, main(data, 25))))
