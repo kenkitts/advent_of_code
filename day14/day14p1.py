@@ -2,7 +2,7 @@ with open('input.txt','rt') as file:
     instructions = file.read().split('\n')
 
 
-def convert(num,mask):
+def convertp1(num,mask):
     num_bin = list(bin(num).lstrip('0b').zfill(36))
     for idx,char in enumerate(mask):
         if char == 'X':
@@ -22,7 +22,7 @@ def main():
         if 'mask' in i:
             mask = i.lstrip('mask = ')
         elif 'mem' in i:
-            c_num = convert(int(i.partition('=')[2].strip()),mask)
+            c_num = convertp1(int(i.partition('=')[2].strip()),mask)
             data[i.partition('=')[0]] = c_num
     return data
 
