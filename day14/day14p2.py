@@ -1,4 +1,7 @@
 from copy import deepcopy
+import time
+
+start_time = time.time()
 
 with open('input.txt','rt') as file:
     instructions = file.read().split('\n')
@@ -45,6 +48,9 @@ def main():
                 data['mem['+str(x)+']'] = int(i.partition('=')[2])
     return data
 
-print(sum(main().values()))
+print('The answer to day 14, part 2 is: {}'.format(sum(main().values())))
+
+stop_time = time.time()
+print('Code took {} seconds to complete.'.format(stop_time - start_time))
 
 #print('The solution to day 14, part 1 is: {}'.format(sum(main().values())))
